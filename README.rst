@@ -4,7 +4,7 @@ ProjectParallelProgrammeren
 
 
 
-<Enter a one-sentence description of this project here.>
+Project that calculates the Lennard Jones potential in an MC simulation.
 
 
 * Free software: MIT license
