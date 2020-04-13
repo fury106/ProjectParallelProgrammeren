@@ -10,6 +10,7 @@ Deze module bevat alle atomen die nodig zijn in de simulatie.
 
 import numpy as np
 import math
+from et_stopwatch import Stopwatch
 
 class Atomen:
 	"""Deze klasse bevat enkel de coördinaten van de atomen, omdat er enkel de Lennard Jones potentiaal berekend zal worden."""
@@ -21,8 +22,12 @@ class Atomen:
 		
 		
 	def getCoordinate(self, nummerAtoom):
+		
 		""" Deze functie retourneert een lijst met het x, y en z coordinaat van het opgegeven atoom.
-		:param int nummerAtoom: is het nummer (min = 0, max = #atomen - 1) van het atoom waar je de coordinaten van wil weten"""
+		
+		:param int nummerAtoom: is het nummer (min = 0, max = #atomen - 1) van het atoom waar je de coordinaten van wil weten
+		"""
+		
 		x = self.Atomen[0, nummerAtoom]
 		y = self.Atomen[1, nummerAtoom]
 		z = self.Atomen[2, nummerAtoom]
@@ -30,16 +35,41 @@ class Atomen:
 		
 		
 	def afstandTweeAtomen(self, nummerAtoom1, nummerAtoom2):
+		
 		""" Deze functie berekent de afstand tussen de twee opgegeven atomen.
+		
 		:param int nummerAtoom1: is het nummer van het eerste atoom.
-		:param int nummerAtoom2: is het nummer van het tweede atoom."""
+		:param int nummerAtoom2: is het nummer van het tweede atoom.
+		"""
+		
 		atoom1 = self.getCoordinate(nummerAtoom1)
 		atoom2 = self.getCoordinate(nummerAtoom2)
 		afstand = math.sqrt(math.pow((atoom1[0] - atoom2[0]) , 2) + math.pow((atoom1[1] - atoom2[1]) , 2) + math.pow((atoom1[2] - atoom2[2]) , 2))
 		return afstand
 		
+	def berekenLJPot(self):
+		""" Deze (test)functie berekent de totale LJ potentiaal van alle atomen. Van deze functie dient een Fortran of C++ variant gemaakt te worden, aangezien lussen traag zijn in Python.
+		"""
+		totalePot = 0
+		for atoom1 in range(len(self.Atomen[0])):
+			for atoom2 in range(len(self.Atomen[0])):
+				if atoom1 != atoom2:
+					r = self.afstandTweeAtomen(atoom1, atoom2)
+					pot = 1/math.pow(r,12) - 1/math.pow(r,6)
+					totalePot = totalePot + pot
+					print(atoom1, '-', atoom2, ': ', pot)
+		totalePot = totalePot / 2 # elke potentiaal wordt 2x berekend (pot1-2 = pot2-1)
+		print('totale potentiaal = ', totalePot)
+		return totalePot
+		
+		
 #test code
-test = Atomen(8)
-print(test.getCoordinate(2))
-print(test)
-print(test.afstandTweeAtomen(1,2))
+if __name__ == '__main__':
+	test = Atomen(8)
+	with Stopwatch(message="getCoordinate"):
+		print(test.getCoordinate(2))
+		print(test)
+	with Stopwatch(message="afstandTweeAtomen"):
+		print(test.afstandTweeAtomen(1,2))
+	with Stopwatch(message="berekenLJPot"):
+		pot = test.berekenLJPot()
