@@ -5,7 +5,7 @@ Package projectparallelprogrammeren
 
 A 'hello world' example.
 """
-__version__ = "0.0.3"
+__version__ = "0.0.4"
 
 try:
     import projectparallelprogrammeren.rng
