@@ -100,17 +100,18 @@ description = "A command-line utility that creates projects from project templat
 name = "cookiecutter"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
-version = "1.7.0"
+version = "1.7.2"
 
 [package.dependencies]
-binaryornot = ">=0.2.0"
+Jinja2 = "<3.0.0"
+MarkupSafe = "<2.0.0"
+binaryornot = ">=0.4.4"
 click = ">=7.0"
-future = ">=0.15.2"
-jinja2 = ">=2.7"
-jinja2-time = ">=0.1.0"
-poyo = ">=0.1.0"
-requests = ">=2.18.0"
-whichcraft = ">=0.4.0"
+jinja2-time = ">=0.2.0"
+poyo = ">=0.5.0"
+python-slugify = ">=4.0.0"
+requests = ">=2.23.0"
+six = ">=1.10"
 
 [[package]]
 category = "main"
@@ -126,7 +127,7 @@ description = "A practical Python project skeleton generator."
 name = "et-micc"
 optional = false
 python-versions = ">=3.6,<4.0"
-version = "0.10.22"
+version = "0.10.23"
 
 [package.dependencies]
 click = ">=7.0,<8.0"
@@ -143,20 +144,12 @@ description = "CLI micc-build and module for building binary extensions created 
 name = "et-micc-build"
 optional = false
 python-versions = ">=3.6,<4.0"
-version = "0.10.22"
+version = "0.10.23"
 
 [package.dependencies]
-et-micc = "0.10.22"
+et-micc = "0.10.23"
 numpy = ">=1.17.0,<2.0.0"
 pybind11 = ">=2.2.4,<3.0.0"
-
-[[package]]
-category = "main"
-description = "Clean single-source support for Python 3 and 2"
-name = "future"
-optional = false
-python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
-version = "0.18.2"
 
 [[package]]
 category = "main"
@@ -362,6 +355,20 @@ six = ">=1.5"
 
 [[package]]
 category = "main"
+description = "A Python Slugify application that handles Unicode"
+name = "python-slugify"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
+version = "4.0.0"
+
+[package.dependencies]
+text-unidecode = ">=1.3"
+
+[package.extras]
+unidecode = ["Unidecode (>=1.1.1)"]
+
+[[package]]
+category = "main"
 description = "World timezone definitions, modern and historical"
 name = "pytz"
 optional = false
@@ -416,7 +423,7 @@ description = "Python documentation generator"
 name = "sphinx"
 optional = false
 python-versions = ">=3.5"
-version = "3.0.2"
+version = "3.0.3"
 
 [package.dependencies]
 Jinja2 = ">=2.3"
@@ -538,6 +545,14 @@ test = ["pytest"]
 
 [[package]]
 category = "main"
+description = "The most basic Text::Unidecode port"
+name = "text-unidecode"
+optional = false
+python-versions = "*"
+version = "1.3"
+
+[[package]]
+category = "main"
 description = "Style preserving TOML library"
 name = "tomlkit"
 optional = false
@@ -574,14 +589,6 @@ python-versions = "*"
 version = "0.1.9"
 
 [[package]]
-category = "main"
-description = "This package provides cross-platform cross-python shutil.which functionality."
-name = "whichcraft"
-optional = false
-python-versions = "*"
-version = "0.6.1"
-
-[[package]]
 category = "dev"
 description = "Backport of pathlib-compatible object wrapper for zip files"
 marker = "python_version < \"3.8\""
@@ -595,7 +602,7 @@ docs = ["sphinx", "jaraco.packaging (>=3.2)", "rst.linker (>=1.9)"]
 testing = ["jaraco.itertools", "func-timeout"]
 
 [metadata]
-content-hash = "9980288fdae6830a750fed56a65ea06fbc24484709995abf8b57ca09965338a2"
+content-hash = "d816afe0566d8040554078383f1e378cc40e961dfde81ee9dee7297c3f2d6524"
 python-versions = "^3.7"
 
 [metadata.files]
@@ -640,23 +647,20 @@ colorama = [
     {file = "colorama-0.4.3.tar.gz", hash = "sha256:e96da0d330793e2cb9485e9ddfd918d456036c7149416295932478192f4436a1"},
 ]
 cookiecutter = [
-    {file = "cookiecutter-1.7.0-py2.py3-none-any.whl", hash = "sha256:910e6c423da42c45c2614d6676485d4872c4ed1bd9531cfff59280977f98fbf5"},
-    {file = "cookiecutter-1.7.0.tar.gz", hash = "sha256:479997e1c26c51bbbaf04097ef7d82b1d91cfb03f570cb5fb5ca265c88db04ae"},
+    {file = "cookiecutter-1.7.2-py2.py3-none-any.whl", hash = "sha256:430eb882d028afb6102c084bab6cf41f6559a77ce9b18dc6802e3bc0cc5f4a30"},
+    {file = "cookiecutter-1.7.2.tar.gz", hash = "sha256:efb6b2d4780feda8908a873e38f0e61778c23f6a2ea58215723bcceb5b515dac"},
 ]
 docutils = [
     {file = "docutils-0.16-py2.py3-none-any.whl", hash = "sha256:0c5b78adfbf7762415433f5515cd5c9e762339e23369dbe8000d84a4bf4ab3af"},
     {file = "docutils-0.16.tar.gz", hash = "sha256:c2de3a60e9e7d07be26b7f2b00ca0309c207e06c100f9cc2a94931fc75a478fc"},
 ]
 et-micc = [
-    {file = "et-micc-0.10.22.tar.gz", hash = "sha256:63886d3b4e0c6652cf6a569073aa2dec24c1629cfb3c40b8b3ba08d4972f1f29"},
-    {file = "et_micc-0.10.22-py3-none-any.whl", hash = "sha256:adc9be4f34ef3da440b20362101fea8be28208bcbc7afb5b5eec8c377a960998"},
+    {file = "et-micc-0.10.23.tar.gz", hash = "sha256:be45ae9b460b952314b3d4e5e860303cb02406091d81f06ca6c79d04c08b9577"},
+    {file = "et_micc-0.10.23-py3-none-any.whl", hash = "sha256:07fe63dd218106eac1a59ba10091d9261af86bfa4796bc5a9af0f9ac52d4c251"},
 ]
 et-micc-build = [
-    {file = "et-micc-build-0.10.22.tar.gz", hash = "sha256:ba4ccd6b7b4baa5c2bfb63f676b97657921ec7fe68cd8bf9afcedbc2c0379cda"},
-    {file = "et_micc_build-0.10.22-py3-none-any.whl", hash = "sha256:905a016ee773196d7c509800a50c1db588e78b0a819bc106e6575877c1ffd09a"},
-]
-future = [
-    {file = "future-0.18.2.tar.gz", hash = "sha256:b1bead90b70cf6ec3f0710ae53a525360fa360d306a86583adc6bf83a4db537d"},
+    {file = "et-micc-build-0.10.23.tar.gz", hash = "sha256:f7c74eedee52bcd594692b453e7062604f77b724648e3d33aaf3c61f355beb27"},
+    {file = "et_micc_build-0.10.23-py3-none-any.whl", hash = "sha256:9647edf1f5e951d4c0eb7967d88b57bb76c3c8e55b17f0d804cc857bf587a423"},
 ]
 idna = [
     {file = "idna-2.9-py2.py3-none-any.whl", hash = "sha256:a068a21ceac8a4d63dbfd964670474107f541babbd2250d61922f029858365fa"},
@@ -780,6 +784,9 @@ python-dateutil = [
     {file = "python-dateutil-2.8.1.tar.gz", hash = "sha256:73ebfe9dbf22e832286dafa60473e4cd239f8592f699aa5adaf10050e6e1823c"},
     {file = "python_dateutil-2.8.1-py2.py3-none-any.whl", hash = "sha256:75bb3f31ea686f1197762692a9ee6a7550b59fc6ca3a1f4b5d7e32fb98e2da2a"},
 ]
+python-slugify = [
+    {file = "python-slugify-4.0.0.tar.gz", hash = "sha256:a8fc3433821140e8f409a9831d13ae5deccd0b033d4744d94b31fea141bdd84c"},
+]
 pytz = [
     {file = "pytz-2019.3-py2.py3-none-any.whl", hash = "sha256:1c557d7d0e871de1f5ccd5833f60fb2550652da6be2693c1e02300743d21500d"},
     {file = "pytz-2019.3.tar.gz", hash = "sha256:b02c06db6cf09c12dd25137e563b31700d3b80fcc4ad23abb7a315f2789819be"},
@@ -801,8 +808,8 @@ snowballstemmer = [
     {file = "snowballstemmer-2.0.0.tar.gz", hash = "sha256:df3bac3df4c2c01363f3dd2cfa78cce2840a79b9f1c2d2de9ce8d31683992f52"},
 ]
 sphinx = [
-    {file = "Sphinx-3.0.2-py3-none-any.whl", hash = "sha256:3145d87d0962366d4c5264c39094eae3f5788d01d4b1a12294051bfe4271d91b"},
-    {file = "Sphinx-3.0.2.tar.gz", hash = "sha256:d7c6e72c6aa229caf96af82f60a0d286a1521d42496c226fe37f5a75dcfe2941"},
+    {file = "Sphinx-3.0.3-py3-none-any.whl", hash = "sha256:f5505d74cf9592f3b997380f9bdb2d2d0320ed74dd69691e3ee0644b956b8d83"},
+    {file = "Sphinx-3.0.3.tar.gz", hash = "sha256:62edfd92d955b868d6c124c0942eba966d54b5f3dcb4ded39e65f74abac3f572"},
 ]
 sphinx-click = [
     {file = "sphinx-click-2.3.2.tar.gz", hash = "sha256:1b649ebe9f7a85b78ef6545d1dc258da5abca850ac6375be104d484a6334a728"},
@@ -836,6 +843,10 @@ sphinxcontrib-serializinghtml = [
     {file = "sphinxcontrib-serializinghtml-1.1.4.tar.gz", hash = "sha256:eaa0eccc86e982a9b939b2b82d12cc5d013385ba5eadcc7e4fed23f4405f77bc"},
     {file = "sphinxcontrib_serializinghtml-1.1.4-py2.py3-none-any.whl", hash = "sha256:f242a81d423f59617a8e5cf16f5d4d74e28ee9a66f9e5b637a18082991db5a9a"},
 ]
+text-unidecode = [
+    {file = "text-unidecode-1.3.tar.gz", hash = "sha256:bad6603bb14d279193107714b288be206cac565dfa49aa5b105294dd5c4aab93"},
+    {file = "text_unidecode-1.3-py2.py3-none-any.whl", hash = "sha256:1311f10e8b895935241623731c2ba64f4c455287888b18189350b67134a822e8"},
+]
 tomlkit = [
     {file = "tomlkit-0.5.11-py2.py3-none-any.whl", hash = "sha256:4e1bd6c9197d984528f9ff0cc9db667c317d8881288db50db20eeeb0f6b0380b"},
     {file = "tomlkit-0.5.11.tar.gz", hash = "sha256:f044eda25647882e5ef22b43a1688fb6ab12af2fc50e8456cdfc751c873101cf"},
@@ -851,10 +862,6 @@ walkdir = [
 wcwidth = [
     {file = "wcwidth-0.1.9-py2.py3-none-any.whl", hash = "sha256:cafe2186b3c009a04067022ce1dcd79cb38d8d65ee4f4791b8888d6599d1bbe1"},
     {file = "wcwidth-0.1.9.tar.gz", hash = "sha256:ee73862862a156bf77ff92b09034fc4825dd3af9cf81bc5b360668d425f3c5f1"},
-]
-whichcraft = [
-    {file = "whichcraft-0.6.1-py2.py3-none-any.whl", hash = "sha256:deda9266fbb22b8c64fd3ee45c050d61139cd87419765f588e37c8d23e236dd9"},
-    {file = "whichcraft-0.6.1.tar.gz", hash = "sha256:acdbb91b63d6a15efbd6430d1d7b2d36e44a71697e93e19b7ded477afd9fce87"},
 ]
 zipp = [
     {file = "zipp-3.1.0-py3-none-any.whl", hash = "sha256:aa36550ff0c0b7ef7fa639055d797116ee891440eac1a56f378e2d3179e0320b"},

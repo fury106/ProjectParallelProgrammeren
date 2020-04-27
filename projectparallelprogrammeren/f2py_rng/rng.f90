@@ -9,27 +9,30 @@
 !     in the projectparallelprogrammeren documentation (because there is no recent sphinx
 !     extension for modern fortran.
 
-subroutine add(x,y,z,n)
-  ! Compute the
-  !
-  ! Python use:
-  !    import ProjectParallelProgrammeren.rng as f90
-  !    a      = np.array([1,2,3],dtype=np.float64)
-  !    result = np.ndarray((2,), np.float64)
-  !    f90.mean_and_stddev(result,a)
-  !    avg = result[0]
-  !    std = result[1]
-    implicit none
-  !-------------------------------------------------------------------------------------------------
-    integer*4              , intent(in)    :: n
-    real*8   , dimension(n), intent(in)    :: x,y
-    real*8   , dimension(n), intent(inout) :: z
-    ! intent is inout because we do not want to return an array to avoid needless copying
-  !-------------------------------------------------------------------------------------------------
-  ! declare local variables
-    integer*4 :: i
-  !-------------------------------------------------------------------------------------------------
-    do i=1,n
-        z(i) = x(i) + y(i)
-    end do
-end subroutine add
+module my_f90_module
+	implicit none
+	
+	! definieren van de parameters en andere variabelen
+	integer*8, parameter :: a=2147483629_8
+	integer*8, parameter :: b=2147483629_8
+	integer*8, parameter :: m=2_8**31-1
+	integer*8			 :: seed = 0_8
+	integer*8			 :: x	 = 0_8
+	
+	contains
+		subroutine set_seed(s)
+			integer*8, intent(in) :: s
+			seed = s
+			x = s
+		end subroutine set_seed
+		
+		function lcg1()
+			! Deze functie berekent het volgende willekeurig getal
+			implicit none
+			integer*8 :: lcg1 ! result type
+			! nieuw getal berekenen:
+			x = modulo(a*x+b, m)
+			! nieuw getal toewijzen:
+			lcg1 = x
+		end function lcg1
+end module my_f90_module

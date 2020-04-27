@@ -5,16 +5,16 @@
 import projectparallelprogrammeren
 
 
-def test_hello_noargs():
-    """Test for projectparallelprogrammeren.hello()."""
-    s = projectparallelprogrammeren.hello()
-    assert s=="Hello world"
+#def test_hello_noargs():
+ #   """Test for projectparallelprogrammeren.hello()."""
+  #  s = projectparallelprogrammeren.hello()
+   # assert s=="Hello world"
 
 
-def test_hello_me():
-    """Test for projectparallelprogrammeren.hello('me')."""
-    s = projectparallelprogrammeren.hello('me')
-    assert s=="Hello me"
+#def test_hello_me():
+ #   """Test for projectparallelprogrammeren.hello('me')."""
+  #  s = projectparallelprogrammeren.hello('me')
+   # assert s=="Hello me"
     
     
 # ==============================================================================

@@ -2,22 +2,34 @@
 # -*- coding: utf-8 -*-
 """Tests for f2py module `projectparallelprogrammeren.rng`."""
 
-import projectparallelprogrammeren
+import projectparallelprogrammeren as ppp
 # create an alias for the binary extension cpp module
-f90 = projectparallelprogrammeren.rng
+f90 = ppp.rng.my_f90_module
 
-import numpy as np
+def test_f90_seed():
+	"""Test standaars 'seed' en zijn bijhorende initiele stauts"""
+	f90.set_seed(1)
+	assert f90.seed == 1
+	assert f90.x == 1
+	
+def test_f90_set_seed():
+	"""Test voor het toewijzen van een waarde aan 'seed'"""
+	f90.set_seed(1)
+	assert f90.seed == 1
+	assert f90.x == 1
 
-
-def test_f90_add():
-    x = np.array([0,1,2,3,4],dtype=np.float)
-    shape = x.shape
-    y = np.ones (shape,dtype=np.float)
-    z = np.zeros(shape,dtype=np.float)
-    expected_z = x + y
-    f90.add(x,y,z)
-    assert (z == expected_z).all()
-
+def test_f90_lcg1():
+	""" Deze test vergelijkt the fortran variant met de python variant"""
+	# 'seed' instellen
+	seed = 1
+	lcg1 = ppp.LCG(seed=seed)
+	f90.set_seed(seed)
+	# test voor 10 cijfers
+	for i in range(10):
+		r = lcg1()
+		fr = f90.lcg1()
+		assert r == fr
+		
 #===============================================================================
 # The code below is for debugging a particular test in eclipse/pydev.
 # (normally all tests are run with pytest)

@@ -5,7 +5,20 @@ Package projectparallelprogrammeren
 
 A 'hello world' example.
 """
-__version__ = "0.0.4"
+__version__ = "0.0.5"
+
+try:
+    import projectparallelprogrammeren.atomenf
+except ModuleNotFoundError as e:
+    # Try to build this binary extension:
+    from pathlib import Path
+    import click
+    from et_micc_build.cli_micc_build import auto_build_binary_extension
+    msg = auto_build_binary_extension(Path(__file__).parent, 'atomenf')
+    if not msg:
+        import projectparallelprogrammeren.atomenf
+    else:
+        click.secho(msg, fg='bright_red')
 
 try:
     import projectparallelprogrammeren.rng
@@ -23,6 +36,7 @@ except ModuleNotFoundError as e:
 
 from time import time_ns
 import numpy as np
+f90 = projectparallelprogrammeren.rng.my_f90_module
 
 class LCG:
 	"""
@@ -60,6 +74,11 @@ class LCG:
 	
     
 if __name__=="__main__":
+	#voorlopig testcode
 	print("Hello World!")
+	test = LCG()
+	c = test()
+	print("Python rng:", c)
+	print("Fortran rng:",f90.lcg1())
 
 # eof
