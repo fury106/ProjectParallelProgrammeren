@@ -17,10 +17,53 @@ module f90_module
 			implicit none
 			!variabelen definieren:
 			real*8		:: afstand
-			real*8		:: ljPot2Atomen
+			real*8		:: ljpot2atomen
 			!LJ potentiaal berekenen
-			ljPot2Atomen = 4*((1/afstand)**12-(1/afstand)**6)
+			if (afstand .EQ. 0) then !Als afstand = 0, ongeldige invoer
+				write(*,*) 'afstand =', afstand
+				ljpot2atomen = 0 !Nog veranderen.
+			else
+				ljpot2atomen = 4*((1/afstand)**12-(1/afstand)**6)
+			end if
 		end function ljpot2atomen
+		
+		function ljpotalleatomen(lijstCoordinaten,aantal)
+			!Deze functie loopt over de lijst van alle atomen en berekent alle LJ potentialen.
+			implicit none
+		
+			!variabelen definieren:
+			real*8, dimension(3, aantal)	:: lijstCoordinaten	!de lijst met alle coordinaten
+			integer*4						:: aantal			!het aantal atomen
+			integer*4						:: atoom1, atoom2	!nummer van atoom 1 en 2
+			real*8							:: x1, y1, z1		!coordinaten atoom 1
+			real*8							:: x2, y2, z2		!coordinaten atoom 2
+			real*8							:: r				!afstand tussen twee atomen
+			real*8							:: ljpot			!lj pot tussen 2 atomen
+			real*8							:: ljpotalleatomen	!totale lj pot van alle atomen
+			ljpotalleatomen = 0
+		
+			!de eigenlijke berekening:
+			do atoom1 = 1, aantal
+				x1 = lijstCoordinaten(1, atoom1)
+				y1 = lijstCoordinaten(2, atoom1)
+				z1 = lijstCoordinaten(3, atoom1)
+				do atoom2 = 1, aantal
+					x2 = lijstCoordinaten(1, atoom2)
+					y2 = lijstCoordinaten(2, atoom2)
+					z2 = lijstCoordinaten(3, atoom2)
+					
+					if (atoom1 .NE. atoom2) then
+						r = sqrt((x2 - x1)**2 + (y2 - y1)**2 + (z2 - z1)**2)
+						ljpot = ljpot2atomen(r)
+						ljpotalleatomen = ljpotalleatomen + ljpot
+						print*, atoom1, " - ", atoom2, ": ", ljpot
+					end if
+				end do
+			end do
+			ljpotalleatomen = ljpotalleatomen / 2 !delen door 2 want alles wordt 2x berekend
+			print*, "Totale potentiaal = ", ljpotalleatomen
+		end function ljpotalleatomen
+	
 
 
 	
