@@ -5,7 +5,7 @@ Package projectparallelprogrammeren
 
 A 'hello world' example.
 """
-__version__ = "0.0.6"
+__version__ = "0.0.9"
 
 try:
     import projectparallelprogrammeren.atomenf
@@ -37,6 +37,9 @@ except ModuleNotFoundError as e:
 from time import time_ns
 import numpy as np
 f90 = projectparallelprogrammeren.rng.my_f90_module
+f901 = projectparallelprogrammeren.atomenf.f90_module
+from projectparallelprogrammeren import atomen
+from et_stopwatch import Stopwatch
 
 class LCG:
 	"""
@@ -75,10 +78,16 @@ class LCG:
     
 if __name__=="__main__":
 	#voorlopig testcode
-	print("Hello World!")
+	"""print("Hello World!")
 	test = LCG()
 	c = test()
 	print("Python rng:", c)
-	print("Fortran rng:",f90.lcg1())
+	print("Fortran rng:",f90.lcg1())"""
+	#test geheel
+	test = atomen.Atomen(5)
+	with Stopwatch(message="Fortran"):
+		pot = f901.ljpotalleatomen(test.getCoordinaten(), 5)
+	with Stopwatch(message="Python"):
+		pot2 = test.berekenLJPot()
 
 # eof

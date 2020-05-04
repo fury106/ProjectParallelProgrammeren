@@ -21,18 +21,67 @@ module my_f90_module
 	
 	contains
 		subroutine set_seed(s)
-			integer*8, intent(in) :: s
-			seed = s
-			x = s
+			integer*8, optional :: s
+			integer :: values(8)
+			real	:: rTime
+			!seed instellen (vergelijkbaar met time_ns() van python, maar nu is seed tijd van de dag in ms.)
+			if (present(s)) then
+				seed = s
+				x = s
+			else 
+				call date_and_time(values=values)
+				rTime = (values(5))*60.
+				rTime = (rTime + values(6))*60.
+				rTime = (rTime + values(7))*1e3
+				rTime = rTime + values(8) - x
+				seed = rTime !orgineel seed = s
+				x = rTime !s
+			end if
 		end subroutine set_seed
 		
 		function lcg1()
 			! Deze functie berekent het volgende willekeurig getal
 			implicit none
 			integer*8 :: lcg1 ! result type
+			!call set_seed(x)
 			! nieuw getal berekenen:
 			x = modulo(a*x+b, m)
 			! nieuw getal toewijzen:
 			lcg1 = x
 		end function lcg1
+		
+		!function coordinaten(aantal)
+		!	!deze functie genereert de coordinaten van de atomen
+		!	implicit none
+		!	integer*8, dimension(3, aantal)	:: coordinatenlijst	!de lijst met alle coordinaten
+		!	integer*4						:: teller, teller1
+		!	integer*8, dimension(3, aantal)	:: coordinaten
+		!	
+		!	call set_seed(seed)
+		!	do teller = 1, aantal
+		!		do teller1 = 1, 3
+		!			coordinatenlijst(teller1, teller) = lcg1()
+		!		end do
+		!	end do
+		!	
+		!	coordinaten = coordinatenlijst
+		!	
+ 		!end function coordinaten
+ 		
+ 		function coordinaten(hoeveel)
+			! Deze functie berekent het volgende willekeurig getal
+			implicit none
+			integer*8, dimension(3, hoeveel)	:: coordinaten ! result type
+			integer*8, intent(in)				:: hoeveel
+			integer*4							:: teller, teller1
+			
+			call set_seed()
+			do teller = 1, hoeveel
+				do teller1 = 1, 3
+					coordinaten(teller1, teller) = lcg1()
+				end do
+			end do
+			!f2py depend (hoeveel) , coordinaten
+		end function coordinaten
+ 		
 end module my_f90_module

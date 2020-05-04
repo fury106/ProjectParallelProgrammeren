@@ -43,11 +43,13 @@ module f90_module
 			ljpotalleatomen = 0
 		
 			!de eigenlijke berekening:
-			do atoom1 = 1, aantal
+			!do atoom1 = 1, aantal
+			do atoom1 = 1, (aantal - 1)
 				x1 = lijstCoordinaten(1, atoom1)
 				y1 = lijstCoordinaten(2, atoom1)
 				z1 = lijstCoordinaten(3, atoom1)
-				do atoom2 = 1, aantal
+				!do atoom2 = 1, aantal
+				do atoom2 = (atoom1 + 1), aantal
 					x2 = lijstCoordinaten(1, atoom2)
 					y2 = lijstCoordinaten(2, atoom2)
 					z2 = lijstCoordinaten(3, atoom2)
@@ -60,7 +62,7 @@ module f90_module
 					end if
 				end do
 			end do
-			ljpotalleatomen = ljpotalleatomen / 2 !delen door 2 want alles wordt 2x berekend
+			!ljpotalleatomen = ljpotalleatomen / 2 !delen door 2 want alles wordt 2x berekend
 			print*, "Totale potentiaal = ", ljpotalleatomen
 		end function ljpotalleatomen
 	
