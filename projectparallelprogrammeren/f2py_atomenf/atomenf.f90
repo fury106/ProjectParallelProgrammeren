@@ -20,7 +20,7 @@ module f90_module
 			real*8		:: ljpot2atomen
 			!LJ potentiaal berekenen
 			if (afstand .EQ. 0) then !Als afstand = 0, ongeldige invoer
-				write(*,*) 'afstand =', afstand
+				!write(*,*) 'afstand =', afstand
 				ljpot2atomen = 0 !Nog veranderen.
 			else
 				ljpot2atomen = 4*((1/afstand)**12-(1/afstand)**6)
@@ -58,12 +58,12 @@ module f90_module
 						r = sqrt((x2 - x1)**2 + (y2 - y1)**2 + (z2 - z1)**2)
 						ljpot = ljpot2atomen(r)
 						ljpotalleatomen = ljpotalleatomen + ljpot
-						print*, atoom1, " - ", atoom2, ": ", ljpot
+						!print*, atoom1, " - ", atoom2, ": ", ljpot
 					end if
 				end do
 			end do
 			!ljpotalleatomen = ljpotalleatomen / 2 !delen door 2 want alles wordt 2x berekend
-			print*, "Totale potentiaal = ", ljpotalleatomen
+			!print*, "Totale potentiaal = ", ljpotalleatomen
 		end function ljpotalleatomen
 	
 

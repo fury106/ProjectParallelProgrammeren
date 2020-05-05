@@ -6,11 +6,20 @@ Module projectparallelprogrammeren.atomenf
 
 Module :py:mod:`atomenf` built from fortran code in :file:`f2py_atomenf/atomenf.f90`.
 
-.. function:: add(x,y,z)
+.. function:: ljpot2atomen(afstand)
    :module: projectparallelprogrammeren.atomenf
    
-   Compute the sum of *x* and *y* and store the result in *z* (overwrite).
+   Deze functie berekent de Lennard Jones Potentiaal tussen twee atomen.
 
-   :param x: 1D Numpy array with ``dtype=numpy.float64`` (input)
-   :param y: 1D Numpy array with ``dtype=numpy.float64`` (input)
-   :param z: 1D Numpy array with ``dtype=numpy.float64`` (output)
+   :param afstand: De afstand tussen de twee atomen. (input)
+   :param ljpot2atomen: De Lennard Jones potentiaal van twee atomen die op deze afstand van elkaar liggen. (output)
+   
+.. function:: ljpotalleatomen(lijstCoordinaten,aantal)
+   :module: projectparallelprogrammeren.atomenf
+   
+   Deze functie berekent de Lennard Jones potentialen van alle atomen.
+   
+   :param lijstCoordinaten: De lijst met de coordinaten van alle atomen. (input)
+   :param aantal: Het aantal atomen in de simulatie. (input)
+   :param ljpotalleatomen: De som van alle Lennard Jones potentialen. (output)
+

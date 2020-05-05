@@ -18,7 +18,7 @@ class Atomen:
 	"""Deze klasse bevat enkel de coördinaten van de atomen, omdat er enkel de Lennard Jones potentiaal berekend zal worden."""
 	
 	def __init__(self, aantal):
-		print("Er worden", aantal, "atomen gesimuleerd.") #dient voorlopig als test
+		#print("Er worden", aantal, "atomen gesimuleerd.") #dient voorlopig als test
 		#self.Atomen = np.random.rand(3,aantal) #coordinaten genereren van de atomen
 		self.Atomen = np.zeros((3, aantal))
 		#for i in range(aantal):
@@ -31,7 +31,7 @@ class Atomen:
 		#	z  = f90.lcg1()
 		#	self.Atomen[2, i] = z
 		self.Atomen = f90.coordinaten(aantal)
-		print(self.Atomen)
+		#print(self.Atomen)
 		
 		
 	def getCoordinate(self, nummerAtoom):
@@ -73,9 +73,9 @@ class Atomen:
 					r = self.afstandTweeAtomen(atoom1, atoom2)
 					pot = 4*(1/math.pow(r,12) - 1/math.pow(r,6))
 					totalePot = totalePot + pot
-					print(atoom1, '-', atoom2, ': ', pot)
+					#print(atoom1, '-', atoom2, ': ', pot)
 		#totalePot = totalePot / 2 # elke potentiaal wordt 2x berekend (pot1-2 = pot2-1)
-		print('totale potentiaal = ', totalePot)
+		#print('totale potentiaal = ', totalePot)
 		return totalePot
 		
 	def getCoordinaten(self):

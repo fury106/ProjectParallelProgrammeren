@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "ProjectParallelProgrammeren"
-version = "0.0.9"
+version = "0.1.2"
 description = "<Enter a one-sentence description of this project here.>"
 authors = ["Indy Verhoeven <indyverhoeven1@outlook.com>"]
 license = "MIT"
