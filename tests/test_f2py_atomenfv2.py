@@ -1,11 +1,13 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-"""Tests for f2py module `projectparallelprogrammeren.atomenf`."""
+"""Tests for f2py module `projectparallelprogrammeren.atomenfv2`."""
 
 import projectparallelprogrammeren as ppp
-import math
 # create an alias for the binary extension cpp module
-f90 = ppp.atomenf.f90_module
+f90 = ppp.atomenfv2.f90_module2
+
+import math
+
 
 def test_lj2atomen():
 	"""Test om de potentiaal tussen 2 atomen te berekenen"""

@@ -5,7 +5,20 @@ Package projectparallelprogrammeren
 
 Een Monte Carlo simulatie van een aantal conformaties van een aantal atomen waarvan de Lennard Jones potentiaal berekend wordt.
 """
-__version__ = "0.1.2"
+__version__ = "0.2.0"
+
+try:
+    import projectparallelprogrammeren.atomenfv2
+except ModuleNotFoundError as e:
+    # Try to build this binary extension:
+    from pathlib import Path
+    import click
+    from et_micc_build.cli_micc_build import auto_build_binary_extension
+    msg = auto_build_binary_extension(Path(__file__).parent, 'atomenfv2')
+    if not msg:
+        import projectparallelprogrammeren.atomenfv2
+    else:
+        click.secho(msg, fg='bright_red')
 
 try:
     import projectparallelprogrammeren.atomenf
@@ -132,14 +145,21 @@ if __name__=="__main__":
 		for i in range(10):
 			test = atomen.Atomen(5)
 			pot = test.berekenLJPot()"""
-	with Stopwatch(message="10 atomen"):
+	"""with Stopwatch(message="10 atomen"):
 		mc.simulatie(10,10)
 	with Stopwatch(message="100 atomen"):
 		mc.simulatie(100,10)
 	with Stopwatch(message="1000 atomen"):
 		mc.simulatie(1000,10)
 	with Stopwatch(message="10000 atomen"):
-		simulatie(10000,10)
+		simulatie(10000,10)"""
+
+	from importlib import import_module
+	for i in range(3):
+		#alle versies van de simulatie importeren en achtereenvolgens uitvoeren.
+		version = f"montecarlo_v{i}"
+		montecarlo = import_module(version)
+		montecarlo.simulatie()
 
 
 # eof

@@ -1,15 +1,15 @@
 !-------------------------------------------------------------------------------------------------
-! Fortran source code for module projectparallelprogrammeren.atomenf
+! Fortran source code for module projectparallelprogrammeren.atomenfv2
 !-------------------------------------------------------------------------------------------------
 ! Remarks:
-!   . Enter Python documentation for this module in ``./atomenf.rst``.
+!   . Enter Python documentation for this module in ``./atomenfv2.rst``.
 !     You might want to check the f2py output for the interfaces of the C-wrapper functions.
 !     It will be autmatically included in the projectparallelprogrammeren documentation.
 !   . Documument the Fortran routines in this file. This documentation will not be included
 !     in the projectparallelprogrammeren documentation (because there is no recent sphinx
 !     extension for modern fortran.
 
-module f90_module
+module f90_module2
 	implicit none
 	contains
 		function ljpot2atomen(afstand)
@@ -18,12 +18,16 @@ module f90_module
 			!variabelen definieren:
 			real*8		:: afstand
 			real*8		:: ljpot2atomen
+			real*8		:: rr, rr6
 			!LJ potentiaal berekenen
 			if (afstand .EQ. 0) then !Als afstand = 0, ongeldige invoer
 				!write(*,*) 'afstand =', afstand
 				ljpot2atomen = HUGE(ljpot2atomen) !als afstand = 0, potentiaal = grootst mogelijke getal
 			else
-				ljpot2atomen = 4*((1/afstand)**12-(1/afstand)**6)
+				rr = 1/afstand
+				rr = rr * rr
+				rr6 = rr * rr * rr
+				ljpot2atomen = 4*(rr6 * (rr6 - 1))
 			end if
 		end function ljpot2atomen
 		
@@ -69,4 +73,4 @@ module f90_module
 
 
 	
-end module f90_module
+end module f90_module2

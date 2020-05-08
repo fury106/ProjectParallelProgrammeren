@@ -16,3 +16,13 @@ API
 .. automodule:: projectparallelprogrammeren.montecarlo_v0
    :members:
 
+
+.. automodule:: projectparallelprogrammeren.montecarlo_v1
+   :members:
+
+
+.. include:: ../projectparallelprogrammeren/f2py_atomenfv2/atomenfv2.rst
+
+.. automodule:: projectparallelprogrammeren.montecarlo_v2
+   :members:
+

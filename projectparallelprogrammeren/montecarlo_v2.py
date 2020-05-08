@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
 """
-Module projectparallelprogrammeren.montecarlo_v0 
+Module projectparallelprogrammeren.montecarlo_v2 
 =================================================================
 
-simulatie v0: alles in Python (op genereren van de getallen na)
+A module met geoptimaliseerde berekening in Fortran.
 
 """
 import math
@@ -12,6 +12,8 @@ import numpy as np
 from statistics import stdev
 import projectparallelprogrammeren
 from projectparallelprogrammeren import atomen
+#f90 = projectparallelprogrammeren.rng.my_f90_module
+f901 = projectparallelprogrammeren.atomenfv2.f90_module2
 from et_stopwatch import Stopwatch
 
 
@@ -22,7 +24,7 @@ def simulatie(n=20, m=10):
 	:param int n: Het aantal atomen dat gebruikt wordt.
 	:param int m: Het aantal conformaties dat gesimuleerd moet worden.
 	"""
-	with Stopwatch(message="v0: Python"):
+	with Stopwatch(message="v2: berekingen geoptimaliseerd"):
 		coordinatenLaagsteE = 0
 		nummerRunLaagsteE = 0
 		LaagsteE = math.inf
@@ -30,9 +32,12 @@ def simulatie(n=20, m=10):
 		gemiddelde = 0
 		potentialenlijst = list()
 		for i in range(m):
-			#""""""""""""""""""""""""""""""""""""""print("Bezig met het simuleren van run", i+1, "van", m)
+			#print("Bezig met het simuleren van run", i+1, "van", m)
 			run = atomen.Atomen(n)
-			pot = run.berekenLJPot()
+			pot = f901.ljpotalleatomen(run.getCoordinaten(), n)
+			if pot >= 1.7976931348623157e+300:
+				#als afstand = 0, geeft Fortran een heel hoog getal terug. Dit wordt beschouwd als oneindig.
+				pot = math.inf
 			totalePot = totalePot + pot
 			gemiddelde = totalePot / (i + 1)
 			potentialenlijst.append(pot)
