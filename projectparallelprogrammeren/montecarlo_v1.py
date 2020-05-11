@@ -45,9 +45,9 @@ def simulatie(n=20, m=10):
 				coordinatenLaagsteE = run.getCoordinaten()
 				nummerRunLaagsteE = i
 				LaagsteE = pot
-		print(" ")
-		print("----------RESULTATEN----------")
-		print("Run", nummerRunLaagsteE + 1,"van", m, "had de laagste totale Lennard Jones Potentiaal, namelijk:", LaagsteE)
-		#print("De Coordinaten van de atomen van deze run zijn:", coordinatenLaagsteE)
-		print("De gemiddelde potentiaal:", gemiddelde)
-		print("De standaardafwijking is:", stdev(potentialenlijst))
+	print(" ")
+	print("----------RESULTATEN----------")
+	print("Run", nummerRunLaagsteE + 1,"van", m, "had de laagste totale Lennard Jones Potentiaal, namelijk:", LaagsteE)
+	#print("De Coordinaten van de atomen van deze run zijn:", coordinatenLaagsteE)
+	print("De gemiddelde potentiaal:", gemiddelde)
+	print("De standaardafwijking is:", stdev(potentialenlijst))

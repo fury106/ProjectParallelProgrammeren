@@ -26,3 +26,7 @@ API
 .. automodule:: projectparallelprogrammeren.montecarlo_v2
    :members:
 
+
+.. automodule:: projectparallelprogrammeren.montecarlo_v3
+   :members:
+

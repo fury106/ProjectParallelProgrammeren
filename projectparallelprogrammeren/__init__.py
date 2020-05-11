@@ -5,7 +5,7 @@ Package projectparallelprogrammeren
 
 Een Monte Carlo simulatie van een aantal conformaties van een aantal atomen waarvan de Lennard Jones potentiaal berekend wordt.
 """
-__version__ = "0.2.0"
+__version__ = "0.3.2"
 
 try:
     import projectparallelprogrammeren.atomenfv2
@@ -155,11 +155,11 @@ if __name__=="__main__":
 		simulatie(10000,10)"""
 
 	from importlib import import_module
-	for i in range(3):
+	for i in range(4):
 		#alle versies van de simulatie importeren en achtereenvolgens uitvoeren.
 		version = f"montecarlo_v{i}"
 		montecarlo = import_module(version)
-		montecarlo.simulatie()
+		montecarlo.simulatie(50,100)
 
 
 # eof
