@@ -7,8 +7,9 @@ Een Monte Carlo simulatie van een aantal conformaties van een aantal atomen waar
 """
 __version__ = "0.3.2"
 
+
 try:
-    import projectparallelprogrammeren.atomenfv2
+    from projectparallelprogrammeren import atomenfv2
 except ModuleNotFoundError as e:
     # Try to build this binary extension:
     from pathlib import Path
