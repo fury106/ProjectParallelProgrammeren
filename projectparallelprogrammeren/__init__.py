@@ -5,11 +5,10 @@ Package projectparallelprogrammeren
 
 Een Monte Carlo simulatie van een aantal conformaties van een aantal atomen waarvan de Lennard Jones potentiaal berekend wordt.
 """
-__version__ = "0.3.2"
-
+__version__ = "0.3.3"
 
 try:
-    from projectparallelprogrammeren import atomenfv2
+    import projectparallelprogrammeren.atomenfv2
 except ModuleNotFoundError as e:
     # Try to build this binary extension:
     from pathlib import Path
@@ -160,7 +159,7 @@ if __name__=="__main__":
 		#alle versies van de simulatie importeren en achtereenvolgens uitvoeren.
 		version = f"montecarlo_v{i}"
 		montecarlo = import_module(version)
-		montecarlo.simulatie(50,100)
+		montecarlo.simulatie(100,100)
 
 
 # eof

@@ -40,6 +40,7 @@ def simulatie(n=20, m=10):
 	totalePot = 0
 	gemiddelde = 0
 	potentialenlijst = list()
+	potkwadraat = 0 #nodig voor berekening stdev
 	
 	for i in range(1+rank*perrank, 1+(rank+1)*perrank):	#de lus itereren
 		run = atomen.Atomen(n)	#nieuwe lijst atomen genereren
@@ -47,6 +48,7 @@ def simulatie(n=20, m=10):
 		
 		totalePot = totalePot + pot
 		potentialenlijst.append(pot)
+		potkwadraat = potkwadraat + pot * pot
 		if pot < laagsteE:
 			coordinatenLaagsteE = run.getCoordinaten()
 			nummerRunLaagsteE = i
@@ -56,10 +58,10 @@ def simulatie(n=20, m=10):
 	
 	#vanaf nu zoeken naar de optimale configuratie:
 	optimaleCoordinaten = comm.gather(coordinatenLaagsteE, root = 0)
-	laagsteE = comm.gather(str(laagsteE), root = 0)
+	laagsteE = comm.gather(laagsteE, root = 0)
 	totalePot = comm.gather(totalePot, root = 0)
 	potentialen = comm.gather(potentialenlijst, root = 0)
-	
+	potkwadraat = comm.gather(potkwadraat, root = 0)
 	stopwatch.stop()
 	
 	if rank == 0:
@@ -67,15 +69,19 @@ def simulatie(n=20, m=10):
 		#laagsteEnergie = str(min(dictionary))
 		#laagsteEnergie = str(dictionary)
 		#optimaleCoordinaten = dictionary[laagsteEnergie]
-		laagsteEnergie = str(min(laagsteE))
+		laagsteEnergie = min(laagsteE)
 		
 		print(" ")
 		print("----------RESULTATEN----------")
 		print("v3: parallellisatie:", stopwatch)
+		#print(laagsteE)
+		#print(potentialen)
 		print("De laagste energie bedraagt:", laagsteEnergie)
-		gemiddelde = sum(totalePot) / m
+		gemiddelde = sum(totalePot) / (size * (m // size))
 		print("De gemiddelde energie bedraagt:", gemiddelde)
-		print("De standaardafwijking bedraagt:", stdev(potentialen[0]))
+		standaardafwijking = np.sqrt(sum(potkwadraat) / (size * (m // size) - 1) - (gemiddelde * gemiddelde))
+		print("De standaardafwijking bedraagt:", standaardafwijking)
+		print(size)
 		
 		
 		
@@ -102,6 +108,6 @@ def simulatie(n=20, m=10):
 		print("De standaardafwijking is:", stdev(potentialenlijst))"""
 		
 if __name__ == "__main__":
-	test = simulatie(50,100)
+	test = simulatie(10000,500)
 		
 #eof
