@@ -108,6 +108,6 @@ def simulatie(n=20, m=10):
 		print("De standaardafwijking is:", stdev(potentialenlijst))"""
 		
 if __name__ == "__main__":
-	test = simulatie(10000,500)
+	test = simulatie(100,50)
 		
 #eof

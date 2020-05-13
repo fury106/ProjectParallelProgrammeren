@@ -30,3 +30,7 @@ API
 .. automodule:: projectparallelprogrammeren.montecarlo_v3
    :members:
 
+
+.. automodule:: projectparallelprogrammeren.codesimulatie
+   :members:
+

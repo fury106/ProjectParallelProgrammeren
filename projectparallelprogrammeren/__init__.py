@@ -159,7 +159,7 @@ if __name__=="__main__":
 		#alle versies van de simulatie importeren en achtereenvolgens uitvoeren.
 		version = f"montecarlo_v{i}"
 		montecarlo = import_module(version)
-		montecarlo.simulatie(100,100)
+		montecarlo.simulatie(100,50)
 
 
 # eof
