@@ -11,6 +11,9 @@ import math
 import numpy as np
 from statistics import stdev
 import projectparallelprogrammeren
+from projectparallelprogrammeren import montecarlo_v1
+from projectparallelprogrammeren import montecarlo_v2
+from projectparallelprogrammeren import montecarlo_v3
 from projectparallelprogrammeren import atomen
 from et_stopwatch import Stopwatch
 
@@ -30,7 +33,7 @@ def simulatie(n=20, m=10):
 		gemiddelde = 0
 		potentialenlijst = list()
 		for i in range(m):
-			#""""""""""""""""""""""""""""""""""""""print("Bezig met het simuleren van run", i+1, "van", m)
+			#print("Bezig met het simuleren van run", i+1, "van", m)
 			run = atomen.Atomen(n)
 			pot = run.berekenLJPot()
 			totalePot = totalePot + pot
@@ -46,3 +49,7 @@ def simulatie(n=20, m=10):
 	#print("De Coordinaten van de atomen van deze run zijn:", coordinatenLaagsteE)
 	print("De gemiddelde potentiaal:", gemiddelde)
 	print("De standaardafwijking is:", stdev(potentialenlijst))
+	
+	"""montecarlo_v1.simulatie(n, m)
+	montecarlo_v2.simulatie(n, m)
+	montecarlo_v3.simulatie(n, m)"""

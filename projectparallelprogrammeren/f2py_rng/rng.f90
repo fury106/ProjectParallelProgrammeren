@@ -50,23 +50,6 @@ module my_f90_module
 			lcg1 = x
 		end function lcg1
 		
-		!function coordinaten(aantal)
-		!	!deze functie genereert de coordinaten van de atomen
-		!	implicit none
-		!	integer*8, dimension(3, aantal)	:: coordinatenlijst	!de lijst met alle coordinaten
-		!	integer*4						:: teller, teller1
-		!	integer*8, dimension(3, aantal)	:: coordinaten
-		!	
-		!	call set_seed(seed)
-		!	do teller = 1, aantal
-		!		do teller1 = 1, 3
-		!			coordinatenlijst(teller1, teller) = lcg1()
-		!		end do
-		!	end do
-		!	
-		!	coordinaten = coordinatenlijst
-		!	
- 		!end function coordinaten
  		
  		function coordinaten(hoeveel)
 			! Deze functie berekent het volgende willekeurig getal
@@ -78,7 +61,7 @@ module my_f90_module
 			call set_seed()
 			do teller = 1, hoeveel
 				do teller1 = 1, 3
-					coordinaten(teller1, teller) = lcg1()
+					coordinaten(teller1, teller) = lcg1()/500000 !delen door 500000 om getal kleiner te maken, omdat anders atomen veel te ver van elkaar verwijderd zijn.
 				end do
 			end do
 			!f2py depend (hoeveel) , coordinaten
