@@ -51,3 +51,5 @@ def simulatie(n=20, m=10):
 	#print("De Coordinaten van de atomen van deze run zijn:", coordinatenLaagsteE)
 	print("De gemiddelde potentiaal:", gemiddelde)
 	print("De standaardafwijking is:", stdev(potentialenlijst))
+	
+#eof

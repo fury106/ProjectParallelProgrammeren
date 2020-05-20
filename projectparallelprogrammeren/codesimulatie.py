@@ -19,7 +19,7 @@ def simulatie():
 		#alle versies van de simulatie importeren en achtereenvolgens uitvoeren.
 		version = f"montecarlo_v{i}"
 		montecarlo = import_module(version)
-		montecarlo.simulatie(100,50)
+		montecarlo.simulatie(100,50) #Deze waarden dienen enkel als test
 
 if __name__ == "__main__":
 	simulatie()

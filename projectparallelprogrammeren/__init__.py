@@ -5,7 +5,7 @@ Package projectparallelprogrammeren
 
 Een Monte Carlo simulatie van een aantal conformaties van een aantal atomen waarvan de Lennard Jones potentiaal berekend wordt.
 """
-__version__ = "1.0.0"
+__version__ = "1.0.2"
 
 try:
     import projectparallelprogrammeren.atomenfv2
@@ -91,7 +91,7 @@ class LCG:
 		self.x = (self.a * self.x + self.b) % self.m
 		return self.x
 			
-def simulatie(n=5, m=10):
+def simulatie(n=5, m=10): # deze functie diende oorspronkelijk enkel als test
 	"""
 	Deze functie doet een simulatie van een gegeven hoeveelheid conformaties van het gegeven aantal atomen.
 	
@@ -104,8 +104,8 @@ def simulatie(n=5, m=10):
 	totalePot = 0
 	gemiddelde = 0
 	potentialenlijst = list()
-	for i in range(m):
-		print("Bezig met het simuleren van run", i+1, "van", m)
+	for i in range(m): #LJ pot berekenen voor elke configuratie en evalueren
+		#print("Bezig met het simuleren van run", i+1, "van", m)
 		run = atomen.Atomen(n)
 		pot = f901.ljpotalleatomen(run.getCoordinaten(), n)
 		totalePot = totalePot + pot

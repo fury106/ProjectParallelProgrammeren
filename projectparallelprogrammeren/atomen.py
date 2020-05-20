@@ -19,24 +19,15 @@ class Atomen:
 	
 	def __init__(self, aantal):
 		#print("Er worden", aantal, "atomen gesimuleerd.") #dient voorlopig als test
-		#self.Atomen = np.random.rand(3,aantal) #coordinaten genereren van de atomen
 		self.Atomen = np.zeros((3, aantal))
-		#for i in range(aantal):
-		#	x  = f90.lcg1()
-		#	self.Atomen[0, i] = x
-		#for i in range(aantal):
-		#	y  = f90.lcg1()
-		#	self.Atomen[1, i] = y
-		#for i in range(aantal):
-		#	z  = f90.lcg1()
-		#	self.Atomen[2, i] = z
 		self.Atomen = f90.coordinaten(aantal)
 		#print(self.Atomen)
 		
 		
 	def getCoordinate(self, nummerAtoom):
 		
-		""" Deze functie retourneert een lijst met het x, y en z coordinaat van het opgegeven atoom.
+		""" 
+		Deze functie retourneert een lijst met het x, y en z coordinaat van het opgegeven atoom.
 		
 		:param int nummerAtoom: is het nummer (min = 0, max = #atomen - 1) van het atoom waar je de coordinaten van wil weten
 		"""
@@ -64,8 +55,6 @@ class Atomen:
 		""" Deze (test)functie berekent de totale LJ potentiaal van alle atomen. Van deze functie dient een Fortran of C++ variant gemaakt te worden, aangezien lussen traag zijn in Python.
 		"""
 		totalePot = 0
-		#for atoom1 in range(len(self.Atomen[0])):
-		#	for atoom2 in range(len(self.Atomen[0])):
 		#omdat pot12 = pot21, moet elk paar maar 1x berekend worden, dus zo:
 		for atoom1 in range(len(self.Atomen[0])-1):
 			for atoom2 in range(atoom1 + 1, len(self.Atomen[0])):
@@ -74,18 +63,19 @@ class Atomen:
 					pot = 4*(1/math.pow(r,12) - 1/math.pow(r,6))
 					totalePot = totalePot + pot
 					#print(atoom1, '-', atoom2, ': ', pot)
-		#totalePot = totalePot / 2 # elke potentiaal wordt 2x berekend (pot1-2 = pot2-1)
 		#print('totale potentiaal = ', totalePot)
 		return totalePot
 		
 	def getCoordinaten(self):
-		"Deze functie retourneert de coordinaten van alle atomen."""
+		"""
+		Deze functie retourneert de coordinaten van alle atomen.
+		"""
 		x = self.Atomen[0].tolist()
 		y = self.Atomen[1].tolist()
 		z = self.Atomen[2].tolist()
 		return [x, y, z]
 		
-#test code
+#test code:
 if __name__ == '__main__':
 	test = Atomen(8)
 	with Stopwatch(message="getCoordinate"):
@@ -96,3 +86,5 @@ if __name__ == '__main__':
 	with Stopwatch(message="berekenLJPot"):
 		pot = test.berekenLJPot()
 	print(test.getCoordinaten)
+
+#eof

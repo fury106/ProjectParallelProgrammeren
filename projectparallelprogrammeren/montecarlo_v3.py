@@ -57,6 +57,7 @@ def simulatie(n=20, m=10):
 	comm.Barrier()
 	
 	#vanaf nu zoeken naar de optimale configuratie:
+	#resultaten bundelen
 	optimaleCoordinaten = comm.gather(coordinatenLaagsteE, root = 0)
 	laagsteE = comm.gather(laagsteE, root = 0)
 	totalePot = comm.gather(totalePot, root = 0)
@@ -65,10 +66,6 @@ def simulatie(n=20, m=10):
 	stopwatch.stop()
 	
 	if rank == 0:
-		#dictionary = {laagsteE[i]: optimaleCoordinaten[i] for i in range(len(laagsteE))}
-		#laagsteEnergie = str(min(dictionary))
-		#laagsteEnergie = str(dictionary)
-		#optimaleCoordinaten = dictionary[laagsteEnergie]
 		laagsteEnergie = min(laagsteE)
 		
 		print(" ")
@@ -82,31 +79,9 @@ def simulatie(n=20, m=10):
 		standaardafwijking = np.sqrt(sum(potkwadraat) / (size * (m // size) - 1) - (gemiddelde * gemiddelde))
 		print("De standaardafwijking bedraagt:", standaardafwijking)
 		print(size)
-		
-		
-		
-			
-		"""for i in range(m):
-			#print("Bezig met het simuleren van run", i+1, "van", m)
-			run = atomen.Atomen(n)
-			pot = f901.ljpotalleatomen(run.getCoordinaten(), n)
-			if pot >= 1.7976931348623157e+300:
-				#als afstand = 0, geeft Fortran een heel hoog getal terug. Dit wordt beschouwd als oneindig.
-				pot = float("inf")
-			totalePot = totalePot + pot
-			gemiddelde = totalePot / (i + 1)
-			potentialenlijst.append(pot)
-			if pot < LaagsteE:
-				coordinatenLaagsteE = run.getCoordinaten()
-				nummerRunLaagsteE = i
-				LaagsteE = pot
-		print(" ")
-		print("----------RESULTATEN----------")
-		print("Run", nummerRunLaagsteE + 1,"van", m, "had de laagste totale Lennard Jones Potentiaal, namelijk:", LaagsteE)
-		#print("De Coordinaten van de atomen van deze run zijn:", coordinatenLaagsteE)
-		print("De gemiddelde potentiaal:", gemiddelde)
-		print("De standaardafwijking is:", stdev(potentialenlijst))"""
-		
+	
+
+#test code		
 if __name__ == "__main__":
 	test = simulatie(100,50)
 		

@@ -53,3 +53,5 @@ if __name__ == "__main__":
 	v1.simulatie(100000, 100)
 	v2.simulatie(100000, 100)
 	v3.simulatie(100000, 100)
+
+#eof

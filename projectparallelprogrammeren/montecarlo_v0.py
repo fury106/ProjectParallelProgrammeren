@@ -53,3 +53,5 @@ def simulatie(n=20, m=10):
 	"""montecarlo_v1.simulatie(n, m)
 	montecarlo_v2.simulatie(n, m)
 	montecarlo_v3.simulatie(n, m)"""
+	
+#eof

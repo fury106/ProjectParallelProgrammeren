@@ -1,0 +1,502 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>API &mdash; ProjectParallelProgrammeren 1.0.2 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Development" href="authors.html" />
+    <link rel="prev" title="Installation" href="installation.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> ProjectParallelProgrammeren
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="readme.html">ProjectParallelProgrammeren</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#package-projectparallelprogrammeren">Package projectparallelprogrammeren</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-projectparallelprogrammeren-atomen">Module projectparallelprogrammeren.atomen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-projectparallelprogrammeren-rng">Module projectparallelprogrammeren.rng</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-projectparallelprogrammeren-atomenf">Module projectparallelprogrammeren.atomenf</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#module-projectparallelprogrammeren-montecarlo-v0">Module projectparallelprogrammeren.montecarlo_v0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-projectparallelprogrammeren-montecarlo-v1">Module projectparallelprogrammeren.montecarlo_v1</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-projectparallelprogrammeren-atomenfv2">Module projectparallelprogrammeren.atomenfv2</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#module-projectparallelprogrammeren-montecarlo-v2">Module projectparallelprogrammeren.montecarlo_v2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-projectparallelprogrammeren-montecarlo-v3">Module projectparallelprogrammeren.montecarlo_v3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-projectparallelprogrammeren-codesimulatie">Module projectparallelprogrammeren.codesimulatie</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="authors.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">History</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ProjectParallelProgrammeren</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>API</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/api.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-projectparallelprogrammeren">
+<span id="api"></span><h1>API<a class="headerlink" href="#module-projectparallelprogrammeren" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="package-projectparallelprogrammeren">
+<h2>Package projectparallelprogrammeren<a class="headerlink" href="#package-projectparallelprogrammeren" title="Permalink to this headline">¶</a></h2>
+<p>Een Monte Carlo simulatie van een aantal conformaties van een aantal atomen waarvan de Lennard Jones potentiaal berekend wordt.</p>
+<dl class="py class">
+<dt id="projectparallelprogrammeren.LCG">
+<em class="property">class </em><code class="sig-prename descclassname">projectparallelprogrammeren.</code><code class="sig-name descname">LCG</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">seed</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">a</span><span class="o">=</span><span class="default_value">2147483629</span></em>, <em class="sig-param"><span class="n">b</span><span class="o">=</span><span class="default_value">2147483629</span></em>, <em class="sig-param"><span class="n">m</span><span class="o">=</span><span class="default_value">2147483647</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/projectparallelprogrammeren.html#LCG"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#projectparallelprogrammeren.LCG" title="Permalink to this definition">¶</a></dt>
+<dd><p>Linear congruential generator (LCG), gebaseerd op ET-rng.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>seed</strong> – Gebruikt standaard de huidige tijd om verschillende sequenties te berekenen.</p></li>
+<li><p><strong>a</strong> – Parameter voor de LCG.</p></li>
+<li><p><strong>b</strong> – Parameter voor de LCG.</p></li>
+<li><p><strong>m</strong> – Parameter voor de LCG.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt id="projectparallelprogrammeren.LCG.UINT">
+<code class="sig-name descname">UINT</code><a class="headerlink" href="#projectparallelprogrammeren.LCG.UINT" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.uint64</span></code></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="projectparallelprogrammeren.simulatie">
+<code class="sig-prename descclassname">projectparallelprogrammeren.</code><code class="sig-name descname">simulatie</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n</span><span class="o">=</span><span class="default_value">5</span></em>, <em class="sig-param"><span class="n">m</span><span class="o">=</span><span class="default_value">10</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/projectparallelprogrammeren.html#simulatie"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#projectparallelprogrammeren.simulatie" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deze functie doet een simulatie van een gegeven hoeveelheid conformaties van het gegeven aantal atomen.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n</strong> (<em>int</em>) – Het aantal atomen dat gebruikt wordt. (default 5)</p></li>
+<li><p><strong>m</strong> (<em>int</em>) – Het aantal conformaties dat gesimuleerd moet worden. (default 10)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<span class="target" id="module-projectparallelprogrammeren.atomen"></span><div class="section" id="module-projectparallelprogrammeren-atomen">
+<h2>Module projectparallelprogrammeren.atomen<a class="headerlink" href="#module-projectparallelprogrammeren-atomen" title="Permalink to this headline">¶</a></h2>
+<p>Deze module bevat alle atomen die nodig zijn in de simulatie.</p>
+<dl class="py class">
+<dt id="projectparallelprogrammeren.atomen.Atomen">
+<em class="property">class </em><code class="sig-prename descclassname">projectparallelprogrammeren.atomen.</code><code class="sig-name descname">Atomen</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">aantal</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/projectparallelprogrammeren/atomen.html#Atomen"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#projectparallelprogrammeren.atomen.Atomen" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deze klasse bevat enkel de coördinaten van de atomen, omdat er enkel de Lennard Jones potentiaal berekend zal worden.</p>
+<dl class="py method">
+<dt id="projectparallelprogrammeren.atomen.Atomen.afstandTweeAtomen">
+<code class="sig-name descname">afstandTweeAtomen</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">nummerAtoom1</span></em>, <em class="sig-param"><span class="n">nummerAtoom2</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/projectparallelprogrammeren/atomen.html#Atomen.afstandTweeAtomen"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#projectparallelprogrammeren.atomen.Atomen.afstandTweeAtomen" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deze functie berekent de afstand tussen de twee opgegeven atomen.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nummerAtoom1</strong> (<em>int</em>) – is het nummer van het eerste atoom.</p></li>
+<li><p><strong>nummerAtoom2</strong> (<em>int</em>) – is het nummer van het tweede atoom.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="projectparallelprogrammeren.atomen.Atomen.berekenLJPot">
+<code class="sig-name descname">berekenLJPot</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/projectparallelprogrammeren/atomen.html#Atomen.berekenLJPot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#projectparallelprogrammeren.atomen.Atomen.berekenLJPot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deze (test)functie berekent de totale LJ potentiaal van alle atomen. Van deze functie dient een Fortran of C++ variant gemaakt te worden, aangezien lussen traag zijn in Python.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="projectparallelprogrammeren.atomen.Atomen.getCoordinate">
+<code class="sig-name descname">getCoordinate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">nummerAtoom</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/projectparallelprogrammeren/atomen.html#Atomen.getCoordinate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#projectparallelprogrammeren.atomen.Atomen.getCoordinate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deze functie retourneert een lijst met het x, y en z coordinaat van het opgegeven atoom.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>nummerAtoom</strong> (<em>int</em>) – is het nummer (min = 0, max = #atomen - 1) van het atoom waar je de coordinaten van wil weten</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="projectparallelprogrammeren.atomen.Atomen.getCoordinaten">
+<code class="sig-name descname">getCoordinaten</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/projectparallelprogrammeren/atomen.html#Atomen.getCoordinaten"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#projectparallelprogrammeren.atomen.Atomen.getCoordinaten" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deze functie retourneert de coordinaten van alle atomen.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<p>This file documents a python module built from Fortran code with f2py.
+You should document the Python interfaces, <em>NOT</em> the Fortran interfaces.</p>
+<div class="section" id="module-projectparallelprogrammeren-rng">
+<h2>Module projectparallelprogrammeren.rng<a class="headerlink" href="#module-projectparallelprogrammeren-rng" title="Permalink to this headline">¶</a></h2>
+<p>Module <code class="xref py py-mod docutils literal notranslate"><span class="pre">rng</span></code> built from fortran code in <code class="file docutils literal notranslate"><span class="pre">f2py_rng/rng.f90</span></code>.</p>
+<dl class="py function">
+<dt id="projectparallelprogrammeren.rng.lcg1">
+<code class="sig-prename descclassname">projectparallelprogrammeren.rng.</code><code class="sig-name descname">lcg1</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#projectparallelprogrammeren.rng.lcg1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deze functie retourneert een willekeurig getal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> – 1D Numpy array with <code class="docutils literal notranslate"><span class="pre">dtype=numpy.float64</span></code> (input)</p></li>
+<li><p><strong>y</strong> – 1D Numpy array with <code class="docutils literal notranslate"><span class="pre">dtype=numpy.float64</span></code> (input)</p></li>
+<li><p><strong>z</strong> – 1D Numpy array with <code class="docutils literal notranslate"><span class="pre">dtype=numpy.float64</span></code> (output)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="projectparallelprogrammeren.rng.coordinaten">
+<code class="sig-prename descclassname">projectparallelprogrammeren.rng.</code><code class="sig-name descname">coordinaten</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">hoeveel</span></em><span class="sig-paren">)</span><a class="headerlink" href="#projectparallelprogrammeren.rng.coordinaten" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deze functie genereert de coordinaten van de atomen van een run, gebruikmakend van de functie lcg1().</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>hoeveel</strong> – het aantal atomen waarvoor coordinaten berekend moeten worden. (input)</p></li>
+<li><p><strong>coordinaten</strong> – Een lijst met de coordinaten van alle atomen ([x1,…],[y],[z]) (output)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<p>This file documents a python module built from Fortran code with f2py.
+You should document the Python interfaces, <em>NOT</em> the Fortran interfaces.</p>
+</div>
+<div class="section" id="module-projectparallelprogrammeren-atomenf">
+<h2>Module projectparallelprogrammeren.atomenf<a class="headerlink" href="#module-projectparallelprogrammeren-atomenf" title="Permalink to this headline">¶</a></h2>
+<p>Module <code class="xref py py-mod docutils literal notranslate"><span class="pre">atomenf</span></code> built from fortran code in <code class="file docutils literal notranslate"><span class="pre">f2py_atomenf/atomenf.f90</span></code>.</p>
+<dl class="py function">
+<dt id="projectparallelprogrammeren.atomenf.ljpot2atomen">
+<code class="sig-prename descclassname">projectparallelprogrammeren.atomenf.</code><code class="sig-name descname">ljpot2atomen</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">afstand</span></em><span class="sig-paren">)</span><a class="headerlink" href="#projectparallelprogrammeren.atomenf.ljpot2atomen" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deze functie berekent de Lennard Jones Potentiaal tussen twee atomen.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>afstand</strong> – De afstand tussen de twee atomen. (input)</p></li>
+<li><p><strong>ljpot2atomen</strong> – De Lennard Jones potentiaal van twee atomen die op deze afstand van elkaar liggen. (output)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="projectparallelprogrammeren.atomenf.ljpotalleatomen">
+<code class="sig-prename descclassname">projectparallelprogrammeren.atomenf.</code><code class="sig-name descname">ljpotalleatomen</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lijstCoordinaten</span></em>, <em class="sig-param"><span class="n">aantal</span></em><span class="sig-paren">)</span><a class="headerlink" href="#projectparallelprogrammeren.atomenf.ljpotalleatomen" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deze functie berekent de Lennard Jones potentialen van alle atomen.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lijstCoordinaten</strong> – De lijst met de coordinaten van alle atomen. (input)</p></li>
+<li><p><strong>aantal</strong> – Het aantal atomen in de simulatie. (input)</p></li>
+<li><p><strong>ljpotalleatomen</strong> – De som van alle Lennard Jones potentialen. (output)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<span class="target" id="module-projectparallelprogrammeren.montecarlo_v0"></span><div class="section" id="module-projectparallelprogrammeren-montecarlo-v0">
+<h3>Module projectparallelprogrammeren.montecarlo_v0<a class="headerlink" href="#module-projectparallelprogrammeren-montecarlo-v0" title="Permalink to this headline">¶</a></h3>
+<p>simulatie v0: alles in Python (op genereren van de getallen na)</p>
+<dl class="py function">
+<dt id="projectparallelprogrammeren.montecarlo_v0.simulatie">
+<code class="sig-prename descclassname">projectparallelprogrammeren.montecarlo_v0.</code><code class="sig-name descname">simulatie</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n</span><span class="o">=</span><span class="default_value">20</span></em>, <em class="sig-param"><span class="n">m</span><span class="o">=</span><span class="default_value">10</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/projectparallelprogrammeren/montecarlo_v0.html#simulatie"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#projectparallelprogrammeren.montecarlo_v0.simulatie" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deze functie doet een simulatie van een gegeven hoeveelheid conformaties van het gegeven aantal atomen.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n</strong> (<em>int</em>) – Het aantal atomen dat gebruikt wordt.</p></li>
+<li><p><strong>m</strong> (<em>int</em>) – Het aantal conformaties dat gesimuleerd moet worden.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<span class="target" id="module-projectparallelprogrammeren.montecarlo_v1"></span><div class="section" id="module-projectparallelprogrammeren-montecarlo-v1">
+<h3>Module projectparallelprogrammeren.montecarlo_v1<a class="headerlink" href="#module-projectparallelprogrammeren-montecarlo-v1" title="Permalink to this headline">¶</a></h3>
+<p>simulatie v1: combinatie van Python en Fortran.</p>
+<dl class="py function">
+<dt id="projectparallelprogrammeren.montecarlo_v1.simulatie">
+<code class="sig-prename descclassname">projectparallelprogrammeren.montecarlo_v1.</code><code class="sig-name descname">simulatie</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n</span><span class="o">=</span><span class="default_value">20</span></em>, <em class="sig-param"><span class="n">m</span><span class="o">=</span><span class="default_value">10</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/projectparallelprogrammeren/montecarlo_v1.html#simulatie"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#projectparallelprogrammeren.montecarlo_v1.simulatie" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deze functie doet een simulatie van een gegeven hoeveelheid conformaties van het gegeven aantal atomen.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n</strong> (<em>int</em>) – Het aantal atomen dat gebruikt wordt.</p></li>
+<li><p><strong>m</strong> (<em>int</em>) – Het aantal conformaties dat gesimuleerd moet worden.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<p>This file documents a python module built from Fortran code with f2py.
+You should document the Python interfaces, <em>NOT</em> the Fortran interfaces.</p>
+</div>
+<div class="section" id="module-projectparallelprogrammeren-atomenfv2">
+<h2>Module projectparallelprogrammeren.atomenfv2<a class="headerlink" href="#module-projectparallelprogrammeren-atomenfv2" title="Permalink to this headline">¶</a></h2>
+<p>Module <code class="xref py py-mod docutils literal notranslate"><span class="pre">atomenfv2</span></code> built from fortran code in <code class="file docutils literal notranslate"><span class="pre">f2py_atomenfv2/atomenfv2.f90</span></code>.</p>
+<p>Deze extensie is gelijkaardig met de extensie atomenf, maar hier is de berekening van de LJ potentiaal geoptimaliseerd.</p>
+<dl class="py function">
+<dt id="id0">
+<code class="sig-prename descclassname">projectparallelprogrammeren.atomenf.</code><code class="sig-name descname">ljpot2atomen</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">afstand</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id0" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deze functie berekent de Lennard Jones Potentiaal tussen twee atomen.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>afstand</strong> – De afstand tussen de twee atomen. (input)</p></li>
+<li><p><strong>ljpot2atomen</strong> – De Lennard Jones potentiaal van twee atomen die op deze afstand van elkaar liggen. (output)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="id1">
+<code class="sig-prename descclassname">projectparallelprogrammeren.atomenf.</code><code class="sig-name descname">ljpotalleatomen</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lijstCoordinaten</span></em>, <em class="sig-param"><span class="n">aantal</span></em><span class="sig-paren">)</span><a class="headerlink" href="#id1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deze functie berekent de Lennard Jones potentialen van alle atomen.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lijstCoordinaten</strong> – De lijst met de coordinaten van alle atomen. (input)</p></li>
+<li><p><strong>aantal</strong> – Het aantal atomen in de simulatie. (input)</p></li>
+<li><p><strong>ljpotalleatomen</strong> – De som van alle Lennard Jones potentialen. (output)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<span class="target" id="module-projectparallelprogrammeren.montecarlo_v2"></span><div class="section" id="module-projectparallelprogrammeren-montecarlo-v2">
+<h3>Module projectparallelprogrammeren.montecarlo_v2<a class="headerlink" href="#module-projectparallelprogrammeren-montecarlo-v2" title="Permalink to this headline">¶</a></h3>
+<p>A module met geoptimaliseerde berekening in Fortran.</p>
+<dl class="py function">
+<dt id="projectparallelprogrammeren.montecarlo_v2.simulatie">
+<code class="sig-prename descclassname">projectparallelprogrammeren.montecarlo_v2.</code><code class="sig-name descname">simulatie</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n</span><span class="o">=</span><span class="default_value">20</span></em>, <em class="sig-param"><span class="n">m</span><span class="o">=</span><span class="default_value">10</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/projectparallelprogrammeren/montecarlo_v2.html#simulatie"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#projectparallelprogrammeren.montecarlo_v2.simulatie" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deze functie doet een simulatie van een gegeven hoeveelheid conformaties van het gegeven aantal atomen.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n</strong> (<em>int</em>) – Het aantal atomen dat gebruikt wordt.</p></li>
+<li><p><strong>m</strong> (<em>int</em>) – Het aantal conformaties dat gesimuleerd moet worden.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<span class="target" id="module-projectparallelprogrammeren.montecarlo_v3"></span><div class="section" id="module-projectparallelprogrammeren-montecarlo-v3">
+<h3>Module projectparallelprogrammeren.montecarlo_v3<a class="headerlink" href="#module-projectparallelprogrammeren-montecarlo-v3" title="Permalink to this headline">¶</a></h3>
+<p>Gelijkaardig aan v2, maar dan geparallelliseerd.</p>
+<dl class="py function">
+<dt id="projectparallelprogrammeren.montecarlo_v3.simulatie">
+<code class="sig-prename descclassname">projectparallelprogrammeren.montecarlo_v3.</code><code class="sig-name descname">simulatie</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n</span><span class="o">=</span><span class="default_value">20</span></em>, <em class="sig-param"><span class="n">m</span><span class="o">=</span><span class="default_value">10</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/projectparallelprogrammeren/montecarlo_v3.html#simulatie"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#projectparallelprogrammeren.montecarlo_v3.simulatie" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deze functie doet een simulatie van een gegeven hoeveelheid conformaties van het gegeven aantal atomen. Dit is ook de eerste versie die parallel kan lopen over meerdere cores.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n</strong> (<em>int</em>) – Het aantal atomen dat gebruikt wordt.</p></li>
+<li><p><strong>m</strong> (<em>int</em>) – Het aantal conformaties dat gesimuleerd moet worden.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<span class="target" id="module-projectparallelprogrammeren.codesimulatie"></span><div class="section" id="module-projectparallelprogrammeren-codesimulatie">
+<h3>Module projectparallelprogrammeren.codesimulatie<a class="headerlink" href="#module-projectparallelprogrammeren-codesimulatie" title="Permalink to this headline">¶</a></h3>
+<p>Deze module simuleert alles.</p>
+<dl class="py function">
+<dt id="projectparallelprogrammeren.codesimulatie.simulatie">
+<code class="sig-prename descclassname">projectparallelprogrammeren.codesimulatie.</code><code class="sig-name descname">simulatie</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/projectparallelprogrammeren/codesimulatie.html#simulatie"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#projectparallelprogrammeren.codesimulatie.simulatie" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deze functie voert alle versies uit zodat deze vergeleken kunnen worden qua timing.</p>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="authors.html" class="btn btn-neutral float-right" title="Development" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="installation.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Indy Verhoeven
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

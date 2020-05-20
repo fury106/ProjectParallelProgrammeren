@@ -1,5 +1,5 @@
 
-class LCG:
+class LCG: #is dezelfde code als in __init__.py
 	"""
 	Linear congruential generator (LCG), gebaseerd op ET-rng.
 	
@@ -44,6 +44,7 @@ if __name__ == "__main__":
 	import projectparallelprogrammeren as ppp
 	f90 = ppp.rng.my_f90_module
 	
+	#1000000 x numpy generator
 	print("1000000 getallen met numpy generator:")
 	array1 = np.empty(1000000)
 	with Stopwatch(message="np.random.randint(), 1000000x oproepen"):
@@ -55,14 +56,17 @@ if __name__ == "__main__":
 	
 	print(" ")
 	
+	# 1x numpy generator
 	array2 = np.empty(1000000)
 	with Stopwatch(message="np.random.randint(), 1x oproepen"):
 		array2 = np.random.randint(1,2147483629,1000000)
 	gem = np.average(array2)
 	std = np.std(array2)
 	print("Het gemiddelde is:", gem, "en de standaardafwijking is:", std)
+
 	
 	"""print(" ")
+	#zelf geschreven python generator
 	print("1000000 getallen met zelfgeschreven python generator:")
 	
 	array3 = np.empty(1000000)
@@ -73,14 +77,17 @@ if __name__ == "__main__":
 	std = np.std(array3)
 	print("Het gemiddelde is:", gem, "en de standaardafwijking is:", std)"""
 	
+	#1000000x eigen Fortran generator
 	print(" ")
 	print("1000000 getallen met zelfgeschreven Fortran rng")
 	array4 = np.empty(1000000)
 	with Stopwatch(message="1000000x, Fortran rng"):
 		array4 = f90.coordinaten(1000000)
-	array4 = array4 * 500000 #omdat getallen worden gedeeld door 500000 in rng
+	array4 = array4 * 100000 #omdat getallen worden gedeeld door 100000 in rng
 	gem = np.average(array4)
 	std = np.std(array4)
 	print("Het gemiddelde is:", gem, "en de standaardafwijking is:", std)
+
+#eof
 	
 

@@ -24,7 +24,7 @@ module my_f90_module
 			integer*8, optional :: s
 			integer :: values(8)
 			real	:: rTime
-			!seed instellen (vergelijkbaar met time_ns() van python, maar nu is seed tijd van de dag in ms.)
+			!seed instellen (vergelijkbaar met time_ns() van python, maar nu is seed de tijd van de dag in ms.)
 			if (present(s)) then
 				seed = s
 				x = s
@@ -43,7 +43,6 @@ module my_f90_module
 			! Deze functie berekent het volgende willekeurig getal
 			implicit none
 			integer*8 :: lcg1 ! result type
-			!call set_seed(x)
 			! nieuw getal berekenen:
 			x = modulo(a*x+b, m)
 			! nieuw getal toewijzen:
